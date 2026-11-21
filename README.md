@@ -3,8 +3,8 @@
 A simple and efficient **Library Management System** developed in **C++**. This project demonstrates basic concepts of Object-Oriented Programming (OOP) and file handling/data management.
 
 ## 🚀 Features
-* **Manage Books:** Add, update, and remove book records.
-* **Search Functionality:** Quickly find books by title or ID.
+* **Manage Books and Members:** Add books and members, borrow and return books.
+* **Late Books:** Borrowed books are due after 14 days, and the late report lists the ones past due.
 * **Clean Code:** Structured with modular files (`.h` and `.cpp`).
 
 ## 🛠️ Tech Stack
@@ -13,16 +13,14 @@ A simple and efficient **Library Management System** developed in **C++**. This 
 
 ## 📂 Project Structure
 * `main.cpp`: The entry point of the application.
-* `library.h`: Header file containing class definitions.
-* `library.cpp`: Implementation of the library logic.
-* `reports.h`: Header file for generating library statistics and reports.
-* `reports.cpp`: Implementation of reporting logic (e.g., total books, borrowed books).
-* `storage.h`: Header file for data persistence and file handling.
-* `storage.cpp`: Implementation of saving and loading data to/from files.
+* `library.h`: the `Library` class (private books, members and borrows) and the data structs.
+* `library.cpp`: add book/member, borrow, return, next day.
+* `reports.cpp`: late books report (`Library::lateBooks`).
+* `storage.cpp`: saving and loading books, members and borrows (`Library::saveData` / `Library::loadData`).
 
 ## 📊 Modules Added
 * **Reporting System:** Generates clear summaries of the library's current state.
-* **Data Storage:** Ensures all library records are saved safely even after closing the program.
+* **Data Storage:** Books, members and borrows are saved to `library_data.txt` and loaded again when the program starts.
 
 Team:
 Amira
