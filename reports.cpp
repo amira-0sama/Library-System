@@ -1,13 +1,12 @@
 #include <iostream>
-#include "reports.h"
+#include "library.h"
 using namespace std;
-void lateBooks(Library &l){
-    for(int i=0;i<l.borrows.size();i++){
 
-        if(l.currentDay > l.borrows[i].dayReturn){
-
+void Library::lateBooks(){
+    for(int i=0;i<borrows.size();i++){
+        if(currentDay > borrows[i].dayReturn){
             cout<<"Late book: "
-                <<l.borrows[i].bookCode
+                <<borrows[i].bookCode
                 <<endl;
         }
     }
