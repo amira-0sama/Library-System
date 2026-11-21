@@ -1,40 +1,50 @@
 #ifndef LIBRARY_H
 #define LIBRARY_H
-
-#include <vector>
 #include <string>
-using namespace std;
+#include <vector>
 
 struct Book{
-    string code;
-    string title;
+    std::string code;
+    std::string title;
     int totalCopies;
     int availableCopies;
 };
 
 struct Member{
-    string memberCode;
-    string memberName;
+    std::string memberCode;
+    std::string memberName;
 };
 
 struct Borrow{
-    string bookCode;
-    string memberCode;
+    std::string bookCode;
+    std::string memberCode;
     int dayTaken;
     int dayReturn;
 };
 
-struct Library{
-    vector<Book> books;
-    vector<Member> members;
-    vector<Borrow> borrows;
-    int currentDay = 0;
-};
+class Library{
+private:
+    std::vector<Book> books;
+    std::vector<Member> members;
+    std::vector<Borrow> borrows;
+    int currentDay;
 
-void addBook(Library &l);
-void addMember(Library &l);
-Book* searchBook(Library &l,string code);
-void borrowBook(Library &l);
-void giveBackBook(Library &l);
+    Book* searchBook(const std::string &code);
+    Member* searchMember(const std::string &code);
+
+public:
+    Library();
+
+    void addBook();
+    void addMember();
+    void borrowBook();
+    void giveBackBook();
+    void nextDay();
+
+    void lateBooks();
+
+    void saveData();
+    void loadData();
+};
 
 #endif
