@@ -1,12 +1,11 @@
 #include <iostream>
 #include "library.h"
-#include "reports.h"
-#include "storage.h"
 using namespace std;
 
 int main(){
 
     Library lib;
+    lib.loadData();
     int op;
 
     do{
@@ -24,13 +23,13 @@ int main(){
 
         cin>>op;
 
-        if(op==1) addBook(lib);
-        else if(op==2) addMember(lib);
-        else if(op==3) borrowBook(lib);
-        else if(op==4) giveBackBook(lib);
-        else if(op==5) lateBooks(lib);
-        else if(op==6) lib.currentDay++;
-        else if(op==7) saveData(lib);
+        if(op==1) lib.addBook();
+        else if(op==2) lib.addMember();
+        else if(op==3) lib.borrowBook();
+        else if(op==4) lib.giveBackBook();
+        else if(op==5) lib.lateBooks();
+        else if(op==6) lib.nextDay();
+        else if(op==7) lib.saveData();
 
     }while(op!=0);
 
